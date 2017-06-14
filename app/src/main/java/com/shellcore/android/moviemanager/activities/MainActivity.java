@@ -1,8 +1,10 @@
-package com.shellcore.android.moviemanager;
+package com.shellcore.android.moviemanager.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.shellcore.android.moviemanager.R;
+import com.shellcore.android.moviemanager.fragments.NowPlayingFragment;
+import com.shellcore.android.moviemanager.fragments.UpcomingFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        showFragment(NowPlayingFragment.class);
     }
 
     @Override
@@ -80,14 +88,18 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        Class fragment = null;
+
         switch (id) {
             case R.id.nav_now_playing:
-
-                break;
-            case R.id.nav_logout:
-
+                fragment = NowPlayingFragment.class;
+                showFragment(fragment);
                 break;
             case R.id.nav_upcoming:
+                fragment = UpcomingFragment.class;
+                showFragment(fragment);
+                break;
+            case R.id.nav_logout:
 
                 break;
         }
@@ -95,5 +107,22 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void showFragment(Class fragmentClass) {
+        Fragment fragment = null;
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager =   getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fl_content, fragment)
+                .commit();
     }
 }
