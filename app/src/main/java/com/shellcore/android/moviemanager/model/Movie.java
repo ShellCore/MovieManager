@@ -8,6 +8,9 @@ import java.io.Serializable;
 
 public class Movie implements Serializable {
 
+    public static final String POSTER_PATH = "https://image.tmdb.org/t/p/w342";
+    public static final String BACKDROP_PATH = "https://image.tmdb.org/t/p/w780";
+
     private String id;
     private String title;
     private String overview;
@@ -67,7 +70,7 @@ public class Movie implements Serializable {
     }
 
     public String getPosterPath() {
-        return "https://image.tmdb.org/t/p/w342" + posterPath;
+        return POSTER_PATH + posterPath;
     }
 
     public void setPosterPath(String posterPath) {
@@ -75,7 +78,7 @@ public class Movie implements Serializable {
     }
 
     public String getBackdropPath() {
-        return backdropPath;
+        return BACKDROP_PATH + backdropPath;
     }
 
     public void setBackdropPath(String backdropPath) {
