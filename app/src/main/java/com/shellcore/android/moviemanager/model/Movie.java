@@ -1,10 +1,12 @@
 package com.shellcore.android.moviemanager.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Cesar on 14/06/2017.
  */
 
-public class Movie {
+public class Movie implements Serializable {
 
     private String id;
     private String title;
