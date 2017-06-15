@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.shellcore.android.moviemanager.fragments.NowPlayingFragment">
 
-    <android.support.v7.app.AlertController.RecycleListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/rec_movies"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
