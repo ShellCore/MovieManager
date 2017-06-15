@@ -12,4 +12,4 @@ En el código de la aplicación, se realiza el llenado de las listas con un adap
 
 **Movie Manager** es el ejemplo de la _"Lección 2: Trabajando con datos y Material Design"_ del curso [Android App Development for Beginners](https://courses.edx.org/courses/course-v1:GalileoX+CAAD002X+1T2017/info) de la plataforma educativa [edX](https://www.edx.org/).
 
-[logo]: https://github.com/ShellCore/ContactList/raw/master/app/src/main/res/mipmap-mdpi/ic_launcher.png "Movie Manager Logo"
+[logo]: https://github.com/ShellCore/MovieManager/raw/master/app/src/main/res/mipmap-mdpi/ic_launcher.png "Movie Manager Logo"
